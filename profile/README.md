@@ -1,28 +1,51 @@
-# CERTAIN - Certification for Ethical and Regulatory Transparency in Artificial Intelligence
-CERTAIN provides guidelines, technical tools, and solutions across the data and AI value chain to ensure compliance, assess data quality, measure biases, and protect privacy.
+# CERTAIN
 
-Along the whole value chain in using data for economic purposes, guidelines and tools are required to make the business of the different stakeholders successful, and the end-users confident that none of their rights are endangered. CERTAIN addresses these needs and offers solutions for data holders, dataspaces and AI systems providers, and AI systems deployers.
+**Certification for Ethical and Regulatory Transparency in Artificial Intelligence**
 
-To make sure that AI-based products are of high quality and reliability, CERTAIN develops security tools and methods, specifically suitable for dataspaces and AI systems. The project delivers guidelines and technical tools to help with compliance, assess data quality, measure biases in datasets, and protect privacy. CERTAIN sets the foundation of AI certification: it translates the regulations to business terms, builds a directory of certification entities per business, develops a platform to streamline the certification process, and develops tools for AI system providers and certification entities so that they can respectively prepare and run a certification process.  
+CERTAIN develops guidelines and open tools that help data holders, dataspace operators, AI providers and deployers comply with EU regulation: traceable documentation of AI systems, data quality and bias assessment, privacy protection, and preparation for certification under the EU AI Act. The project is funded by the European Union under Horizon Europe (grant agreement 101189650).
 
-Furthermore, CERTAIN addresses the environmental footprint of the AI value chain. Innovative techniques are elaborated to reduce energy consumption when building and running AI systems, which is beneficial  for the European Green Deal and reduces costs for AI stakeholders.
+## Architecture
 
-## Vision
-CERTAIN aims to create a cohesive and compliant ecosystem for AI stakeholders, fostering trust, transparency, and innovation in the European data economy. Through collaboration and standardisation, the project aims to empower organisations to navigate complex regulatory landscapes, embrace cutting-edge technologies, and drive sustainable growth in the data market and AI sector. Ultimately, the project seeks to establish a framework that promotes responsible AI development, enhances data governance practices, and maximises the societal benefits of AI innovation for a diverse set of actors.
+![CERTAIN interconnected tool ecosystem: the AIDOC-AP ontology describes the AI/MLOps lifecycle; the Semantic MLOps Engine tracks the lifecycle, stores versioned artefacts and builds a knowledge graph that is an instance of the ontology; a trustworthiness dashboard computes trust scores from the metadata; a data lineage connector exports annotated metadata to the data space, where the RegOps engine queries it to assess compliance with the AI Act and GDPR.](architecture.png)
+
+The **Semantic MLOps Engine** collects (meta)data from every stage of an ML pipeline and stores it as versioned artefacts. Its knowledge graph is an instance of the **AIDOC-AP** ontology, which describes AI systems and their lifecycle along the technical documentation required by Annex IV of the AI Act. The graph is exported to the CERTAIN **data space** through a data lineage connector, and the **RegOps engine** queries it in CI/CD compliance workflows.
+
+## Repositories
+
+**Documentation and traceability of AI systems**
+
+| Repository | What it is |
+|---|---|
+| [aidoc-ap](https://github.com/CERTAIN-Project/aidoc-ap) | AIDOC-AP, an application profile for the technical documentation of AI systems (Article 11 and Annex IV of the AI Act), with the Annex IV requirements and competency questions. [w3id.org/aidoc-ap](https://w3id.org/aidoc-ap) |
+| [aidoc-ap-lifecycle](https://github.com/CERTAIN-Project/aidoc-ap-lifecycle) | AIDOC-AP Lifecycle Extension: terms for all stages of the AI system lifecycle, with worked examples. [Documentation](https://certain-project.github.io/aidoc-ap-lifecycle/) |
+| [Semantic_MLOps_engine](https://github.com/CERTAIN-Project/Semantic_MLOps_engine) | Semantic MLOps Engine: MLflow-based capture of lifecycle metadata, exposed as an AIDOC-AP knowledge graph via R2RML and Ontop |
+| [aidoc-ap-compliance](https://github.com/CERTAIN-Project/aidoc-ap-compliance) | Compliance dashboard that runs the competency queries against an instantiated knowledge graph and reports what documentation is missing. [Demo](https://certain-project.github.io/aidoc-ap-compliance/) |
+
+**Synthetic data**
+
+| Repository | What it is |
+|---|---|
+| [Synthetic-Data-Generation-Component](https://github.com/CERTAIN-Project/Synthetic-Data-Generation-Component) | Agent-based simulation that generates realistic public deliberation data |
+| [synthetic_energy_data_generation](https://github.com/CERTAIN-Project/synthetic_energy_data_generation) | Preprocessing pipeline and generative model for synthetic residential energy consumption data |
+| [empw-synth-data](https://github.com/CERTAIN-Project/empw-synth-data) | Anonymised synthetic smart-meter data for energy communities, with fidelity and privacy evaluation (EMPOWER pilot) |
+
+**Pilots**
+
+| Repository | What it is |
+|---|---|
+| [empw-enparto](https://github.com/CERTAIN-Project/empw-enparto) | Optimisation and fairness metrics for participation factors in renewable energy communities (EMPOWER pilot) |
 
 ## Objectives
-- Enable traceability of critical information of AI systems
-- Produce guidelines for legally and ethically compliant AI system assessment regarding EU regulations
-- Design tools for dataspace providers and data holders to help them to be compliant with EU regulations related to AI and minimise energy consumption
-- Develop methods to improve and assess the compliance of AI systems with EU regulations related to AI
-- Design certification procedures for AI systems
-- Empirical evidence of the applicability and adequacy of the proposed framework across multiple sectors
-- To enable the development of an open, dynamic, multi-disciplinary and sustainable community around the EU AI ecosystems and liaised initiatives and actions, towards an EU regulation compliance frameworks
+
+- Traceability of critical information about AI systems
+- Guidelines for the legally and ethically compliant assessment of AI systems under EU regulation
+- Tools for dataspace providers and data holders to comply with AI regulation and reduce energy consumption
+- Methods to assess and improve the compliance of AI systems, and certification procedures for them
+- Evidence of applicability across sectors through pilots
+- An open community around the EU AI ecosystem and related initiatives
 
 ---
 
-Visit our [website](https://certain-project.eu/) or follow us on social media:
-- [YouTube](https://www.youtube.com/@certain-project)
-- [Bluesky](https://bsky.app/profile/certainproject.bsky.social)
-- [LinkedIn](https://www.linkedin.com/company/certain-project)
-- [Mastodon](https://mastodon.social/@CERTAIN)
+[Website](https://certain-project.eu/) · [YouTube](https://www.youtube.com/@certain-project) · [Bluesky](https://bsky.app/profile/certainproject.bsky.social) · [LinkedIn](https://www.linkedin.com/company/certain-project) · [Mastodon](https://mastodon.social/@CERTAIN)
+
+<sub>Funded by the European Union. Views and opinions expressed are those of the authors only and do not necessarily reflect those of the European Union. Neither the European Union nor the granting authority can be held responsible for them.</sub>
